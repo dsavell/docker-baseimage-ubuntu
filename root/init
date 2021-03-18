@@ -1,0 +1,22 @@
+#!/bin/bash
+
+DUID=${DUID:-911}
+DGID=${DGID:-911}
+
+groupmod -o -g "${DGID}" xyz
+usermod -o -u "${DUID}" xyz
+
+echo '
+GID/UID
+-------------------------------------'
+echo "
+User uid:    $(id -u xyz)
+User gid:    $(id -g xyz)
+-------------------------------------
+"
+
+chown xyz:xyz /app
+chown xyz:xyz /config
+chown xyz:xyz /defaults
+
+exec "$@"
