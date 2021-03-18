@@ -9,6 +9,7 @@ ENV HOME="/root" \
   LANG="en_GB.UTF-8" \
   TERM="xterm"
 
+# hadolint ignore=DL3008
 RUN \
   ## Operating System Tools
   apt-get update && \
